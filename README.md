@@ -25,16 +25,19 @@ The project also demonstrates basic XOR-based encryption and decryption using a 
 
 ## 📂 Project Structure
 
+```text
 JavaFilePacker/
 │
 ├── Pack.java
 ├── UnPack.java
 └── README.md
+```
 
 ## 🔄 Working Flow
 
 ### Packing
 
+```text
 Input Folder
      ↓
 Find .txt Files
@@ -48,9 +51,11 @@ XOR Encryption (Key: 0x11)
 Write Header + Encrypted Data
      ↓
 Packed File
+```
 
 ### Unpacking
 
+```text
 Packed File
      ↓
 Read 100-byte Header
@@ -62,17 +67,20 @@ Read Encrypted Data
 XOR Decryption (Key: 0x11)
      ↓
 Create Original File
+```
 
 ## 📦 Packed File Format
 
 Each file stored in the packed file follows this format:
 
-┌────────────────────────┐
-│ Header - 100 Bytes     │
-│ File Name + File Size  │
-├────────────────────────┤
-│ Encrypted File Data    │
-└────────────────────────┘
+```text
+┌──────────────────────────────┐
+│ Header - 100 Bytes           │
+│ File Name + File Size        │
+├──────────────────────────────┤
+│ Encrypted File Data          │
+└──────────────────────────────┘
+```
 
 The same structure is repeated for every `.txt` file.
 
@@ -80,48 +88,68 @@ The same structure is repeated for every `.txt` file.
 
 ### Compile
 
-1.java Pack.java
-2.java UnPack.java
+```bash
+javac Pack.java
+javac UnPack.java
+```
 
 ### Pack Files
 
+```bash
 java Pack
+```
 
 Enter the name of the source folder:
 
+```text
 Marvellous
+```
 
 Enter the name for packed file:
 
+```text
 MarvellousPack
+```
 
 ### Unpack Files
 
+```bash
 java UnPack
+```
 
 Enter the name of the packed file:
 
+```text
 MarvellousPack
+```
 
 ## 🔐 Encryption
 
 The project uses XOR with:
 
+```java
 byte key = 0x11;
+```
 
 Encryption:
 
+```text
 data ^ key
+```
 
 Decryption:
 
+```text
 encryptedData ^ key
+```
 
 The same XOR operation is used for both encryption and decryption because:
 
+```text
 A ^ B ^ B = A
+```
 
-> Note: The XOR implementation is for educational purposes and is not suitable for securing sensitive data.
+> **Note:** The XOR implementation is for educational purposes and is not suitable for securing sensitive data.
 
 ## ⚠️ Current Limitations
 
